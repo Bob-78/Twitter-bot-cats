@@ -21,15 +21,15 @@ while True:
     except:
         pass
     
-    # try to follow x people who've tweeted with hashtag
-    try:
-        follow.now(1)
-    except:
-        pass
-    
     # unfollow some non_friends
     try:
         unfollow_non_friends(5)
+    except:
+        pass
+    
+    # try to follow x people who've tweeted with hashtag
+    try:
+        follow.now(1)
     except:
         pass
     
