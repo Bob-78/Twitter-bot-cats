@@ -9,7 +9,7 @@ from definitions import my_user_id, follow_hashtag
 # follow some people
 def now(amount):
 
-    print("...function follow called. Let's try to follow some people.")
+    print("function follow called. Let's try to follow some people.")
      
     my_api = api.make_api()
      
@@ -23,13 +23,13 @@ def now(amount):
 	        try: # some users may have blocked you, so try and else continue
 	    
 	            my_api.create_friendship(userid)
-	            print("userid {} followed".format(userid))
-	            print("Waiting a bit")
+	            print("...userid {} followed".format(userid))
+	            print("...Waiting a bit")
 	    
 	            time.sleep(10) #Tweet every 15 minutes
 	    
 	        except:
-	            print("Could not follow {}".format(userid))
+	            print("...Could not follow {}".format(userid))
 	            continue
 	            
 
@@ -40,22 +40,22 @@ def unfollow_non_friends(amount):
 
     # make a list of followers
     followers = my_api.followers_ids(my_user_id)
-    print("found {} follower".format(len(followers)))
+    print("...found {} follower".format(len(followers)))
     
     # make a list if following
     following = my_api.friends_ids(my_user_id)
-    print("found {} following)".format(len(following)))
+    print("...found {} following)".format(len(following)))
        
     # makes a new list of users who don't follow you back.
     non_mutuals = list(set(following) - set(followers))
-    print("unfollowing {} users".format(len(non_mutuals)))
+    print("...unfollowing {} users".format(len(non_mutuals)))
     
     # unfollow our non_friends
     for f in non_mutuals[0:amount]:
         try:
             # unfollows non follower.
             my_api.destroy_friendship(f)
-            print('Unfollowed user {}. Waiting a bit.'.format(f))
+            print('...Unfollowed user {}. Waiting a bit.'.format(f))
             time.sleep(10)
         except:
             pass

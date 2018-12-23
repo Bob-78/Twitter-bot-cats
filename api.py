@@ -11,7 +11,7 @@ access_secret = environ["access_secret"]
 #create an OAuthHandler instance. Twitter requires all requests to use OAuth for authentication
 def make_api():
 
-    print("...function make_api called")
+    print("function make_api called")
     
     try:
     

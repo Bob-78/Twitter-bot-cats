@@ -8,7 +8,7 @@ from definitions import base_url
 
 def get_image(base_url):
 
-    print("...function get_image called")
+    print("function get_image called")
 
     # gets the total number of pages
     def get_total_pages(base_url):
@@ -21,7 +21,7 @@ def get_image(base_url):
         total_pages = soup.find('form', {'class': 'add_search_params pure-form hide-xs hide-sm hide-md'}).getText()
         total_pages = [int(s) for s in total_pages.split() if s.isdigit()][0]
 
-        print("returning total pages: {}".format(total_pages))
+        print("...returning total pages: {}".format(total_pages))
     
         return total_pages
     
@@ -39,7 +39,7 @@ def get_image(base_url):
         # append random number to the base url
         random_page_url = base_url + str(random_page_number)
 
-        print("returning url: {}".format(random_page_url))
+        print("...returning url: {}".format(random_page_url))
 
         return random_page_url
 
@@ -63,7 +63,7 @@ def get_image(base_url):
         image_url = image_url.split(' ')[1]  # split list elements, keep only the first one ([0]), drop the 2x
         image_url = image_url.replace("_480", "1280") # get the larger size images
 
-        print("Using this url: {}".format(image_url))
+        print("...Using this url: {}".format(image_url))
     
         return image_url
 
@@ -81,7 +81,7 @@ def get_image(base_url):
         filename ="temp_image.jpg"
         urllib.request.urlretrieve(image_url, filename)
 
-        print("image temp_image.jpg saved")
+        print("...image temp_image.jpg saved")
 
 
     # call the download image function
