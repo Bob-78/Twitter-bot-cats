@@ -44,21 +44,27 @@ def unfollow_non_friends(amount):
     
     # make a list if following
     following = my_api.friends_ids(my_user_id)
-    print("...found {} following)".format(len(following)))
+    print("...found {} following".format(len(following)))
        
     # makes a new list of users who don't follow you back.
     non_mutuals = list(set(following) - set(followers))
-    print("...unfollowing {} users".format(len(non_mutuals)))
+    print("...found {} non_mutuals / non_friends".format(len(non_mutuals)))
     
     # unfollow our non_friends
-    for f in non_mutuals[0:amount]:
-        try:
-            # unfollows non follower.
-            my_api.destroy_friendship(f)
-            print('...Unfollowed user {}. Waiting a bit.'.format(f))
-            time.sleep(10)
-        except:
-            print("...could not unfollow user {}".format(f))
-            continue
+    if len(non_mutuals) > amount:
+        for f in non_mutuals[0:amount]:
+            try:
+                # unfollows non follower.
+                my_api.destroy_friendship(f)
+                print('...Unfollowed user {}. Waiting a bit.'.format(f))
+                time.sleep(10)
+            except:
+                print("...could not unfollow user {}".format(f))
+                continue
+    else:
+        print("Too few non_friends to unfollow now. Doing nothing for the moment.")
+        pass
+
+    
             
 
