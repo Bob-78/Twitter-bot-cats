@@ -51,4 +51,4 @@ while True:
     print("main: waiting {} seconds".format(x))
     time.sleep(x) 
     
-    print("main: OK, done. Going to next cycle."
+    print("main: OK, done. Going to next cycle.")
