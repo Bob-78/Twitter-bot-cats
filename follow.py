@@ -58,6 +58,7 @@ def unfollow_non_friends(amount):
             print('...Unfollowed user {}. Waiting a bit.'.format(f))
             time.sleep(10)
         except:
-            pass
+            print("...could not unfollow user {}".format(f))
+            continue
             
 

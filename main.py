@@ -24,15 +24,7 @@ while True:
     except:
         print("main: could not post tweet")
         pass
-    
-    # unfollow some non_friends
-    try:
-        print("main: trying to unfollow non-friends")
-        follow.unfollow_non_friends(5)
-    except:
-        print("main: could not unfollow non-friend")
-        pass
-    
+        
     # try to follow x people who've tweeted with hashtag
     try:
         print("main: trying to follow")
@@ -41,5 +33,22 @@ while True:
         print("main: could not follow new id")
         pass
     
-    print("waiting before next cycle")
-    time.sleep(1800) #Tweet every 30 minutes
+    #Wait 15 min to not overload the Twitter API
+    x = 900 # number of seconds wait
+    print("main: waiting {} seconds".format(x))
+    time.sleep(x) 
+    
+    # unfollow some non_friends    
+    try:
+        print("main: trying to unfollow non-friends")
+        follow.unfollow_non_friends(5)
+    except:
+        print("main: could not unfollow non-friend")
+        pass
+
+    #Wait 15 min to not overload the Twitter API
+    x = 900 # number of seconds wait
+    print("main: waiting {} seconds".format(x))
+    time.sleep(x) 
+    
+    print("main: OK, done. Going to next cycle."
