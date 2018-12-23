@@ -28,7 +28,7 @@ while True:
     # unfollow some non_friends
     try:
         print("main: trying to unfollow non-friends")
-        unfollow_non_friends(5)
+        follow.unfollow_non_friends(5)
     except:
         print("main: could not unfollow non-friend")
         pass
