@@ -40,9 +40,16 @@ messages = [
 "I have so much personality."
 ]
 
+# define time between cycles
+sleep_time = 900
+
+# number of non_friends to unfollow per cycle
+non_friends_to_unfollow = 5
+
+# people to follow per cycle
+people_to_follow = 1
  
+interval_between_follows = 10
 
-# DO NOT EDIT THIS SECTION
 
-#join the query words, separated by %20
-base_url = "https://pixabay.com/en/photos/{}/?image_type=photo&pagi=".format("%20".join(search_query))  
+

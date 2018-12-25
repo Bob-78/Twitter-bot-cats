@@ -14,11 +14,9 @@ def get_message():
     
         # if the texts are the same, try again
         if text1 == text2:
-        
             continue
     
-        else: 
-            
+        else:       
             # return the two strings
             return str(text1 + " " + text2)
 

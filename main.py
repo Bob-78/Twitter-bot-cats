@@ -4,7 +4,7 @@ import image
 import tweet
 import follow
 import time
-from definitions import base_url
+import definitions
 
 	
 while True:
@@ -12,7 +12,7 @@ while True:
     # try to get image
     try:
         print("main: trying to get image")
-        image.get_image(base_url)
+        image.get_image()
     except:
         print("main: could not get image")
         pass
@@ -28,27 +28,25 @@ while True:
     # try to follow x people who've tweeted with hashtag
     try:
         print("main: trying to follow")
-        follow.now(1)
+        follow.now(definitions.people_to_follow)
     except:
         print("main: could not follow new id")
         pass
     
-    #Wait 15 min to not overload the Twitter API
-    x = 900 # number of seconds wait
-    print("main: waiting {} seconds".format(x))
-    time.sleep(x) 
+    #Wait to not overload the Twitter API
+    print("main: waiting {} seconds".format(definitions.sleep_time))
+    time.sleep(definitions.sleep_time) 
     
     # unfollow some non_friends    
     try:
         print("main: trying to unfollow non-friends")
-        follow.unfollow_non_friends(5)
+        follow.unfollow_non_friends(definitions.non_friends_to_unfollow)
     except:
         print("main: could not unfollow non-friend")
         pass
 
     #Wait 15 min to not overload the Twitter API
-    x = 900 # number of seconds wait
-    print("main: waiting {} seconds".format(x))
-    time.sleep(x) 
+    print("main: waiting {} seconds".format(definitions.sleep_time))
+    time.sleep(definitions.sleep_time) 
     
     print("main: OK, done. Going to next cycle.")

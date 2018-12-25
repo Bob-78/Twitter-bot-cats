@@ -30,5 +30,6 @@ You can generate the file with:
 1. pip freeze > requirements.txt.
 
 Push to github:
-1. git push https://github.com/Bob-78/Twitter-bot-cats.git master
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
 

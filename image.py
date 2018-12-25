@@ -4,9 +4,13 @@ import urllib.request
 from random import randint
 from bs4 import BeautifulSoup
 import helpers
-from definitions import base_url
+import definitions
 
-def get_image(base_url):
+
+def get_image():
+
+    #join the query words, separated by %20
+    base_url = "https://pixabay.com/en/photos/{}/?image_type=photo&pagi=".format("%20".join(definitions.search_query))  
 
     print("function get_image called")
 
@@ -45,9 +49,9 @@ def get_image(base_url):
 
 
     # gets all the image urls from a page
-    def get_image_url(page_url):
+    def get_random_image_url(page_url):
     
-        print("...function get_image_url called")
+        print("...function get_random_image_url called")
     
         #get the soup
         soup = helpers.get_soup(page_url)
@@ -75,7 +79,7 @@ def get_image(base_url):
         page_url = get_random_page_url(base_url)
     
         # get the image url
-        image_url = get_image_url(page_url)
+        image_url = get_random_image_url(page_url)
     
         # download the image 
         filename ="temp_image.jpg"
