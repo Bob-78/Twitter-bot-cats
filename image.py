@@ -86,5 +86,3 @@ def get_image(base_url):
 
     # call the download image function
     download_image(base_url) 
-
-get_image(base_url)
