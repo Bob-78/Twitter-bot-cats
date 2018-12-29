@@ -40,11 +40,11 @@ def unfollow_non_friends(amount):
     my_api = api.make_api()
 
     # make a list of followers
-    followers = my_api.followers_ids(my_user_id)
+    followers = my_api.followers_ids(definitions.my_user_id)
     print("...found {} follower".format(len(followers)))
     
     # make a list if following
-    following = my_api.friends_ids(my_user_id)
+    following = my_api.friends_ids(definitions.my_user_id)
     print("...found {} following".format(len(following)))
        
     # makes a new list of users who don't follow you back.
@@ -65,7 +65,3 @@ def unfollow_non_friends(amount):
     else:
         print("Too few non_friends to unfollow now. Doing nothing for the moment.")
         pass
-
-    
-now(5)
-
